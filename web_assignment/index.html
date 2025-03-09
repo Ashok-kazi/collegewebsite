@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MVIC</title>
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+        /* General Styles */
+        body {
+            background: #ffffff; /* White background */
+            font-family: 'Poppins', sans-serif;
+            color: #000000; /* Black text */
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #000000; /* Black */
+            padding: 10px 0;
+            color: #ffffff; /* White text */
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: #ffffff;
+            white-space: nowrap;
+            overflow: hidden;
+           
+        }
+        /* Header Links and Social Icons */
+.header-links {
+    display: flex;
+    align-items: center;
+}
+
+.header-links a {
+    font-size: 0.9rem;
+    color: #ffffff;
+    text-decoration: none;
+    margin-right: 1rem;
+    transition: opacity 0.3s ease;
+}
+
+.header-links a:hover {
+    opacity: 0.7; /* Reduce opacity on hover */
+}
+
+.social-icons a {
+    font-size: 1rem;
+    color: #ffffff;
+    margin-right: 0.5rem;
+    transition: opacity 0.3s ease;
+}
+
+.social-icons a:hover {
+    opacity: 0.7; /* Reduce opacity on hover */
+}
+        /* Header Links Styling */
+.header-links a {
+    font-size: 0.9rem;
+    color: #ffffff; /* White text */
+    text-decoration: none; /* Remove underline */
+    margin-right: 1rem; /* Spacing between links */
+    transition: opacity 0.3s ease; /* Smooth transition */
+}
+
+.header-links a:hover {
+    opacity: 0; /* Make text disappear on hover */
+}
+
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background-color: #000000; /* Black */
+            position: sticky; /* Make the navbar sticky */
+            top: 0; /* Stick to the top */
+            z-index: 1000; /* Ensure it stays above other content */
+            width: 100%; /* Ensure it spans the full width */
+        }
+
+        .navbar-brand,
+        .navbar-nav .nav-link {
+            color: #ffffff !important;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #000000 !important; /* Black on hover */
+        }
+
+        .navbar-toggler-icon {
+            background-color: #ffffff;
+        }
+
+        /* Image Section */
+        .img-fluid {
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-top: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .img-fluid:hover {
+            transform: scale(1.03);
+        }
+       
+/* Card Styling */
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #000000;
+}
+
+.card-subtitle {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #6c757d;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #000000;
+    line-height: 1.6;
+}
+
+/* Image Styling */
+.card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+
+
+
+/* Carousel Card Styling */
+.carousel .card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    background: #ffffff;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 600px; /* Limit card width */
+}
+
+.carousel .card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #000000;
+}
+
+.carousel .card-text {
+    font-size: 1rem;
+    color: #000000;
+    line-height: 1.6;
+}
+
+.carousel .card-text a {
+    color: #007bff; /* Blue link color */
+    text-decoration: none;
+}
+
+.carousel .card-text a:hover {
+    text-decoration: underline;
+}
+
+/* Carousel Controls */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%;
+    color: #000000; /* Black arrow color */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(1); /* Make arrows white */
+}
+
+        /* Footer */
+        footer {
+            background: #000000; /* Black */
+            color: #ffffff; /* White text */
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        footer h5 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .social-icons a {
+            color: #ffffff;
+            margin: 0 10px;
+            font-size: 24px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #000000; /* Black on hover */
+            transform: scale(1.1);
+        }
+
+        footer p {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #ddd;
+        }
+
+        
+       /* Footer Styles */
+footer {
+    background: #000000; /* Black background */
+    color: #ffffff;       /* White text */
+    padding: 20px 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.social-section {
+    max-width: 45%; /* Limit width for social section */
+}
+
+.map-section {
+    max-width: 55%; /* Increase width for map section */
+    text-align: right; /* Align map to the right */
+}
+
+.map-responsive {
+    max-width: 375px;  /* Increased width to 375px */
+    margin-left: auto;  /* Align to right side */
+    overflow: hidden;
+    padding-bottom: 60%; /* Adjust padding to fit the new size */
+    position: relative;
+    height: 0;
+}
+
+.map-responsive iframe {
+    left: 0;
+    top: 0;
+    height: 225px;  /* Increased height to 225px */
+    width: 100%;
+    position: absolute;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Social Icons Hover Effect */
+.social-icons a {
+    color: #ffffff;
+    margin: 0 10px;
+    font-size: 24px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #000000; /* Black on hover */
+    transform: scale(1.1);
+}
+
+
+    </style>
+</head>
+
+<body>
+<!-- Header -->
+<header>
+    <div class="container d-flex justify-content-between align-items-center">
+        <!-- College Name -->
+        <h1 class="mb-0">Mid-Valley International College (Valley of Champions)</h1>
+
+        <!-- Social Icons and Header Links -->
+        <div class="header-links d-flex align-items-center">
+            <!-- Header Links -->
+            <div class="header-links me-3">
+                <a href="#" class="text-white text-decoration-none me-3">Personal PTE</a>
+                <a href="login.php" class="text-white text-decoration-none me-3">Login (LMS)</a>
+                <a href="#" class="text-white text-decoration-none me-3">Blog</a>
+                <a href="#" class="text-white text-decoration-none me-3">Events</a>
+                <a href="#" class="text-white text-decoration-none">Videos</a>
+            </div>
+
+            <!-- Social Media Icons -->
+            <div class="social-icons">
+                <a href="#" class="text-white text-decoration-none me-2"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="text-white text-decoration-none me-2"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-white text-decoration-none me-2"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="text-white text-decoration-none me-2"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </div>
+</header>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">MVIC College</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="student.html">Students</a></li>
+                    <li class="nav-item"><a class="nav-link" href="course.html">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About us</a></li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="signup.php">Signup</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Image Section -->
+    <div class="container mt-4 text-center">
+        <img src="image/college.jpeg" width="100%" class="img-fluid rounded" alt="College Image">
+    </div>
+
+  <!-- News and Events Section -->
+<div class="container news-events-section mt-5">
+    <h2 class="text-center mb-4">News And Events</h2>
+
+    <!-- News Card 1 -->
+    <div class="card mb-4">
+        <div class="row g-0">
+            <!-- Image Section (Left Side) -->
+            <div class="col-md-3">
+                <img src="image/news1.jpg" class="img-fluid rounded-start" alt="MIDWALLER Event" style="height: 220px; width: 100%; object-fit: cover;">
+            </div>
+            <!-- Content Section (Right Side) -->
+            <div class="col-md-9">
+                <div class="card-body">
+                    <h5 class="card-title">ASHOK JUNG THAPA</h5>
+                    <p class="card-text"><small class="text-muted">2025,02,17</small></p>
+                    <hr>
+                    <h6 class="card-subtitle mb-2 text-muted">1ST RUNNER UP</h6>
+                    <p class="card-text">
+                        <strong>GLADIATOR</strong><br>
+                      --------------------------------<br>
+                      ----------------------------------------------------<br>
+                      --------------------------------------------------------------------------------<br>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- News Card 2 (Example) -->
+    <div class="card mb-4">
+        <div class="row g-0">
+            <!-- Image Section (Left Side) -->
+            <div class="col-md-3">
+                <img src="image/news2.jpg" class="img-fluid rounded-start" alt="Another Event" style="height: 220px; width: 100%; object-fit: cover;">
+            </div>
+            <!-- Content Section (Right Side) -->
+            <div class="col-md-9">
+                <div class="card-body">
+                    <h5 class="card-title">AAYUSH</h5>
+                    <p class="card-text"><small class="text-muted">2025,02,17</small></p>
+                    <hr>
+                    <h6 class="card-subtitle mb-2 text-muted">---------------------------</h6>
+                    <p class="card-text">
+                        <strong>JHOLA GANG</strong><br>
+                         --------------------------------<br>
+                      ----------------------------------------------------<br>
+                      --------------------------------------------------------------------------------<br>
+                       
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- What Our Alumni Say Section -->
+<div class="container alumni-section mt-5">
+    <h2 class="text-center mb-4">What Our Alumni Say</h2>
+
+    <!-- Bootstrap Carousel -->
+    <div id="alumniCarousel" class="carousel slide" data-bs-ride="carousel">
+        <!-- Carousel Indicators -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#alumniCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#alumniCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#alumniCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+
+        <!-- Carousel Inner -->
+        <div class="carousel-inner">
+            <!-- Slide 1 -->
+            <div class="carousel-item active">
+                <div class="card text-center">
+                    <img src="image/alumni1.jpg" class="card-img-top rounded-circle mx-auto mt-3" alt="Nitesh Shrestha" style="width: 100px; height: 100px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">RAM </h5>
+                        <p class="card-text">
+                            HEY MY NAME IS RAM... <a href="#" class="text-primary">Learn More</a>.
+                        </p><small>Working in NEPAL</small></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="carousel-item">
+                <div class="card text-center">
+                    <img src="image/alumni2.jpg" class="card-img-top rounded-circle mx-auto mt-3" alt="Praveen Thapa" style="width: 100px; height: 100px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">SYAM</h5>
+                        <p class="card-text">
+                           HEY MY NAME IS SAM... <a href="#" class="text-primary">Learn More</a>.
+                        </p>
+                        <p><small>Working in Australia</small></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="carousel-item">
+                <div class="card text-center">
+                    <img src="image/alumni3.jpg" class="card-img-top rounded-circle mx-auto mt-3" alt="Prithivi B. Rana" style="width: 100px; height: 100px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">HARRY</h5>
+                        <p class="card-text">
+                            HEY MY NAME IS HARRY... <a href="#" class="text-primary">Learn More</a>.
+                        </p>
+                        <p><small>Working in Dubai</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Carousel Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#alumniCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#alumniCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>>
+ 
+<footer>
+    <div class="footer-content container">
+        <!-- About Us Section -->
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <h5>About Us</h5>
+                <p>
+                    Unleash Your Potential at Mid-Valley International College (MVIC) - Nepal's Best College for Excellence in Education. 
+                    Led by a collective of dedicated academicians, visionary entrepreneurs, and seasoned experts, MVIC is committed to 
+                    providing exceptional educational opportunities across diverse disciplines.
+                </p>
+            </div>
+
+            <!-- Useful Links Section -->
+            <div class="col-md-4 mb-4">
+                <h5>Useful Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-white text-decoration-none">City & Guilds</a></li>
+                    <li><a href="#" class="text-white text-decoration-none">Bachelor of Business Finance (Hons)</a></li>
+                    <li><a href="#" class="text-white text-decoration-none">Bachelor of Business (Hospitality Management) (Hons)</a></li>
+                    <li><a href="#" class="text-white text-decoration-none">Bachelor of Information Technology (Hons)</a></li>
+                    <li><a href="#" class="text-white text-decoration-none">Scholarship</a></li>
+                    <li><a href="#" class="text-white text-decoration-none">Career at MVIC</a></li>
+                    <li><a href="#" class="text-white text-decoration-none">Blogs</a></li>
+                    <li><a href="#" class="text-white text-decoration-none">Events</a></li>
+                    <li><a href="#" class="text-white text-decoration-none">Videos</a></li>
+                    <li><a href="#" class="text-white text-decoration-none">Short Course</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Us Section -->
+            <div class="col-md-4 mb-4">
+                <h5>Contact Us</h5>
+                <p>
+                    <strong>Phone:</strong> +977-1-4537188, 4535188, 9841232529<br>
+                    <strong>Address:</strong> Gyaneshwor, Kathmandu, Nepal<br>
+                    <strong>Email:</strong> info@midvalley.edu.np
+                </p>
+            </div>
+        </div>
+
+        <!-- Social Icons and Map Section -->
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <h5>Follow Us</h5>
+                <div class="social-icons mb-3">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <!-- Google Map Section -->
+            <div class="col-md-6">
+                <h5>Our Location</h5>
+                <div class="map-responsive">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.084090121139!2d85.32408057480544!3d27.709031830906584!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1909d0b2071d%3A0x345b8b9c1f7d207d!2sMid-Valley%20International%20College!5e0!3m2!1sen!2snp!4v1619594843245!5m2!1sen!2snp" 
+                        width="100%" 
+                        height="150" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright and Bachelors/Diploma Courses Section -->
+<div class="row mt-4">
+    <div class="col-md-12 text-center">
+        <p>
+            <strong>Bachelors Courses at Mid-Valley</strong> | 
+            <a href="#" class="text-white text-decoration-none"><i class="fab fa-instagram"></i></a> | 
+            <a href="#" class="text-white text-decoration-none"><i class="fab fa-youtube"></i></a> | 
+            <a href="#" class="text-white text-decoration-none"><i class="fab fa-twitter"></i></a> | 
+            <a href="#" class="text-white text-decoration-none"><i class="fab fa-facebook"></i></a>
+        </p>
+        <p>
+            <strong>Diploma Courses at Mid-Valley</strong> | 
+            <a href="#" class="text-white text-decoration-none"><i class="fab fa-instagram"></i></a> | 
+            <a href="#" class="text-white text-decoration-none"><i class="fab fa-youtube"></i></a> | 
+            <a href="#" class="text-white text-decoration-none"><i class="fab fa-twitter"></i></a> | 
+            <a href="#" class="text-white text-decoration-none"><i class="fab fa-facebook"></i></a>
+        </p>
+        <p>&copy; 2025 Mid-Valley International College. All Rights Reserved.</p>
+    </div>
+</div>
+    </div>
+</footer>
+
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
